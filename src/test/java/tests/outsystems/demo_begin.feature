@@ -49,7 +49,7 @@ Feature: Karate Demo
   Scenario Outline: Making Loads of calls <id> + <title>
     Given path 'todos/' + <id>
     When method get
-#    Then match status == <status>
+    Then status <status>
     And match response.title == <title>
     And match response.completed == <completed>
 
@@ -68,7 +68,8 @@ Feature: Karate Demo
 
 #  Externe source gebruiken
   Scenario: test sources
-    * def json = read('classpath:demo_materiaal/users.json')
+    * def json = read('classpath:tests/outsystems/users.json')
+    And print json
 
 #  Commandline aftrappen
 
